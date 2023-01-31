@@ -37,8 +37,12 @@ DataSetup.setup()
 """
 tensor_x_train = torch.from_numpy(x_train)
 tensor_y_train = torch.from_numpy(y_train)
+tensor_x_test = torch.from_numpy(x_test)
+tensor_y_test = torch.from_numpy(y_test)
+
 
 tensor_train_dataset = TensorDataset(tensor_x_train, tensor_y_train)
+tensor_test_dataset = TensorDataset(tensor_x_test, tensor_y_test)
 data_size = len(tensor_train_dataset)
 
 """
@@ -55,11 +59,11 @@ max_step = epochs
 sigma = dp_lib.get_min_sigma(q, max_step, delta, epsilon)
 print("First sigma: ", sigma)
 sigma = 0.01
-print("Sigma - Noise added to gradients", sigma)
-train_valid_model.train(epochs, model, criterion, optimizer, tensor_train_dataset, 
+print("Sigma - Noise added to gradients {} with epsilon = {}, delta = {} and q = {}".format(sigma, epsilon, delta, q))
+train_valid_model.train_model(epochs, model, criterion, optimizer, tensor_train_dataset, 
                         batch_size, q, clipping_norm, sigma, device)
 
-
+train_valid_model.test_model(model, criterion, tensor_test_dataset, batch_size, device)
 
 
     
