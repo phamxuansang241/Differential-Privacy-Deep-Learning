@@ -13,6 +13,7 @@ Simple implementation of **Deep Learning (DL)** with **Differential Privacy (DP)
 1. Execute run_model.py -cf dp_sgd_config.json
 
 ### Model parameters
+dp_sgd_config.json
 ```python
 {
     "data_name": "mnist",
@@ -27,5 +28,5 @@ Simple implementation of **Deep Learning (DL)** with **Differential Privacy (DP)
 ```
 
 ## Reference
-[1] 
+[1] Abadi, Martin, et al. Deep learning with differential privacy. Proceedings of the 2016 ACM SIGSAC conference on computer and communications security. 2016.
 
