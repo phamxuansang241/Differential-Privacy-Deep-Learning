@@ -1,9 +1,4 @@
-import data_lib
-import model_lib
-import dp_lib
-import args_helper
-import train_valid_model
-import copy
+from DP_DL import data_lib, dp_lib, model_lib, get_args, train_valid_model
 import json
 import torch
 from torch.utils.data import TensorDataset
@@ -15,7 +10,7 @@ device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 """
     ARGUMENT PARSER AND UNPACK JSON OBJECT
 """
-args = args_helper.get_args()
+args = get_args()
 
 with open(args.config_path, 'r') as openfile:
     config = json.load(openfile)
