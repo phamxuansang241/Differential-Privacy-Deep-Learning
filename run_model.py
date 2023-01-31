@@ -58,7 +58,7 @@ criterion = nn.CrossEntropyLoss(reduction='none')
 max_step = epochs
 sigma = dp_lib.get_min_sigma(q, max_step, delta, epsilon)
 print("First sigma: ", sigma)
-sigma = 0.01
+# sigma = 0.01
 print("Sigma - Noise added to gradients {} with epsilon = {}, delta = {} and q = {}".format(sigma, epsilon, delta, q))
 train_valid_model.train_model(epochs, model, criterion, optimizer, tensor_train_dataset, 
                         batch_size, q, clipping_norm, sigma, device)

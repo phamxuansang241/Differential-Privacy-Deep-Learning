@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-import dp_lib
+from DP_DL import dp_lib
 from torch.utils.data import TensorDataset, DataLoader
 import time
 
